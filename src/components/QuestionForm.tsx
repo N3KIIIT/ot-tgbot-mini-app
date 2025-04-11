@@ -1,111 +1,60 @@
-import React, { useState } from 'react';
-import { Answer, Question } from '../types/models';
+import { useState } from 'react';
+import { Question, Answer } from '../types/model';
+import './QuestionForm.css';
 
-interface QuestionFormProps {
-    onSave: (question: Question) => void; // Обработчик сохранения вопроса
-    onCancel: () => void; // Обработчик отмены
-}
+type QuestionFormProps = {
+    question: Question;
+    onChange: (question: Question) => void;
+    onDelete: () => void;
+};
 
-const QuestionForm: React.FC<QuestionFormProps> = ({ onSave, onCancel }) => {
-    const [questionText, setQuestionText] = useState('');
-    const [answers, setAnswers] = useState<Answer[]>([]);
-    const [newAnswerText, setNewAnswerText] = useState('');
-    const [correctAnswerId, setCorrectAnswerId] = useState<Answer | undefined>(undefined);
-
-    // Добавление ответа
-    const handleAddAnswer = () => {
-        if (newAnswerText.trim()) {
-            const newAnswer: Answer = {
-                id: Date.now().toString(), // Генерация уникального ID
-                answerText: newAnswerText,
-            };
-            setAnswers([...answers, newAnswer]);
-            setNewAnswerText('');
-        }
+export const QuestionForm = ({ question, onChange, onDelete }: QuestionFormProps) => {
+    const handleAnswerChange = (answerId: string, field: keyof Answer, value: string | boolean) => {
+        const newAnswers = question.answers.map(a => 
+            a.id === answerId ? { ...a, [field]: value } : a
+        );
+        onChange({ ...question, answers: newAnswers });
     };
 
-    // Удаление ответа
-    const handleRemoveAnswer = (id: string) => {
-        setAnswers(answers.filter((answer) => answer.id !== id));
-    };
-
-    // Сохранение вопроса
-    const handleSaveQuestion = () => {
-        if (questionText.trim() && answers.length > 0) {
-            const newQuestion: Question = {
-                id: Date.now().toString(), // Генерация уникального ID
-                questionText,
-                answers,
-            };
-            onSave(newQuestion);
-        } else {
-            alert('Пожалуйста, заполните текст вопроса и добавьте хотя бы один ответ.');
-        }
+    const addAnswer = () => {
+        const newAnswer: Answer = {
+            id: Date.now().toString(),
+            answerText: '',
+            isAnswerCorrect: false,
+        };
+        onChange({ ...question, answers: [...question.answers, newAnswer] });
     };
 
     return (
-        <div style={{ margin: '20px 0', padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
-            <h3>Добавить вопрос</h3>
+        <div className="question-form">
             <input
                 type="text"
+                value={question.questionText}
+                onChange={(e) => onChange({ ...question, questionText: e.target.value })}
                 placeholder="Текст вопроса"
-                value={questionText}
-                onChange={(e) => setQuestionText(e.target.value)}
-                style={{ width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
             />
-
-            <h4>Ответы:</h4>
-            {answers.map((answer) => (
-                <div key={answer.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            
+            {question.answers.map(answer => (
+                <div key={answer.id} className="answer">
                     <input
-                        type="radio"
-                        name="correctAnswer"
-                        //checked={correctAnswerId === answer.id}
-                        //onChange={() => setCorrectAnswerId(answer.id)}
-                        style={{ marginRight: '10px' }}
+                        type="text"
+                        value={answer.answerText}
+                        onChange={(e) => handleAnswerChange(answer.id, 'answerText', e.target.value)}
+                        placeholder="Вариант ответа"
                     />
-                    <span>{answer.answerText}</span>
-                    <button
-                        onClick={() => handleRemoveAnswer(answer.id)}
-                        style={{ marginLeft: '10px', padding: '5px 10px', backgroundColor: '#dc3545', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-                    >
-                        Удалить
-                    </button>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={answer.isAnswerCorrect}
+                            onChange={(e) => handleAnswerChange(answer.id, 'isAnswerCorrect', e.target.checked)}
+                        />
+                        Верный
+                    </label>
                 </div>
             ))}
-
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                <input
-                    type="text"
-                    placeholder="Текст ответа"
-                    value={newAnswerText}
-                    onChange={(e) => setNewAnswerText(e.target.value)}
-                    style={{ flex: 1, padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
-                />
-                <button
-                    onClick={handleAddAnswer}
-                    style={{ padding: '10px 20px', backgroundColor: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-                >
-                    Добавить ответ
-                </button>
-            </div>
-
-            <div style={{ display: 'flex', gap: '10px' }}>
-                <button
-                    onClick={handleSaveQuestion}
-                    style={{ padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-                >
-                    Сохранить вопрос
-                </button>
-                <button
-                    onClick={onCancel}
-                    style={{ padding: '10px 20px', backgroundColor: '#6c757d', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-                >
-                    Отмена
-                </button>
-            </div>
+            
+            <button type="button" onClick={addAnswer}>Добавить ответ</button>
+            <button type="button" onClick={onDelete}>Удалить вопрос</button>
         </div>
     );
 };
-
-export default QuestionForm;

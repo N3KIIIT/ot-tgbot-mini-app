@@ -1,0 +1,42 @@
+.textareaContainer {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--tg-theme-hint-color, #ccc);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--tg-theme-text-color, #333);
+    background-color: var(--tg-theme-bg-color, white);
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    min-height: 80px; /* Минимальная высота */
+    resize: vertical; /* Разрешаем изменять размер по вертикали */
+    font-family: inherit; /* Наследуем шрифт */
+}
+
+.textarea:focus {
+    border-color: var(--tg-theme-button-color, #007bff);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.errorBorder {
+    border-color: var(--tg-theme-destructive-text-color, #dc3545) !important;
+}
+
+.errorMessage {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--tg-theme-destructive-text-color, #dc3545);
+}
+

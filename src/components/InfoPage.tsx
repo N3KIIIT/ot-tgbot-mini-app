@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from './Button';
 
 interface InfoPageProps {
     onBack: () => void; // Обработчик для кнопки "Назад"
@@ -30,12 +29,7 @@ const InfoPage: React.FC<InfoPageProps> = ({ onBack }) => {
             <h1>Информационный материал</h1>
             {infoData && <p>{infoData}</p>}
             <div style={{ marginTop: '20px' }}>
-                <Button
-                    onClick={onBack}
-                    label="Назад"
-                    backgroundColor="#6c757d"
-                    color="#fff"
-                />
+
             </div>
         </div>
     );

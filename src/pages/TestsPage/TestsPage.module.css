@@ -1,0 +1,69 @@
+.testsPage {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Перенос на маленьких экранах */
+    gap: 10px; /* Отступ между элементами */
+}
+
+.header h2 {
+    margin: 0;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.testList {
+    display: grid;
+    gap: 15px; /* Отступ между карточками */
+    /* Адаптивная сетка */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.testCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем контент и кнопки */
+    padding: 1rem 1.5rem; /* Немного другие паддинги */
+}
+
+.testInfo h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.testInfo p {
+    margin-bottom: 0.5rem;
+    color: var(--tg-theme-hint-color, #666);
+    flex-grow: 1; /* Описание занимает доступное место */
+}
+
+.testInfo small {
+     color: var(--tg-theme-hint-color, #888);
+     font-size: 0.85rem;
+}
+
+.testActions {
+    margin-top: 1rem; /* Отступ сверху для кнопок */
+    display: flex;
+    gap: 10px; /* Отступ между кнопками */
+    flex-wrap: wrap; /* Перенос кнопок */
+    border-top: 1px solid var(--tg-theme-secondary-bg-color, #eee); /* Разделитель */
+    padding-top: 1rem; /* Отступ над кнопками */
+}
+
+.actionButton {
+    padding: 8px 12px; /* Уменьшим кнопки */
+    font-size: 0.9rem;
+}
+
+.error {
+    color: var(--tg-theme-destructive-text-color, red);
+    text-align: center;
+    margin-top: 20px;
+}
+

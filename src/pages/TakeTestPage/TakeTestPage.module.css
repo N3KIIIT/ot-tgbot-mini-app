@@ -1,0 +1,59 @@
+.takeTestPage {
+    padding: 20px;
+}
+
+.takeTestPage h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.description {
+    text-align: center;
+    color: var(--tg-theme-hint-color, #666);
+    margin-bottom: 25px;
+}
+
+.questionCard {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+}
+
+.questionCard h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--tg-theme-text-color, #444);
+    line-height: 1.4;
+}
+
+.answersList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Отступ между чекбоксами */
+}
+
+.notAnswered {
+    display: block;
+    margin-top: 10px;
+    color: var(--tg-theme-destructive-text-color, orange);
+    font-size: 0.9em;
+}
+
+.submitSection {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.error, .errorSubmit {
+    color: var(--tg-theme-destructive-text-color, red);
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid var(--tg-theme-destructive-text-color, red);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.errorSubmit {
+     margin-top: 20px; /* Больший отступ для ошибки отправки */
+}

@@ -5,9 +5,54 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--tg-theme-bg-color, #f4f4f4); /* Используем переменную Telegram */
+  color: var(--tg-theme-text-color, #333); /* Используем переменную Telegram */
+  line-height: 1.5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box; /* Удобная модель бокса */
+}
+
+/* Стили для скроллбара (опционально, для десктопа) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tg-theme-secondary-bg-color, #f1f1f1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tg-theme-hint-color, #aaa);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Базовые стили для ссылок */
+a {
+  color: var(--tg-theme-link-color, #007bff);
+  text-decoration: none; /* Убираем подчеркивание по умолчанию */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Дополнительные корневые переменные (можно добавить больше из themeParams) */
+:root {
+  --tg-theme-bg-color: #ffffff; /* Дефолтный белый */
+  --tg-theme-text-color: #000000; /* Дефолтный черный */
+  --tg-theme-hint-color: #aaaaaa;
+  --tg-theme-link-color: #007aff;
+  --tg-theme-button-color: #007aff;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #f2f2f7;
+  --tg-theme-destructive-text-color: #ff3b30;
+  /* Добавьте другие переменные по мере необходимости */
 }

@@ -1,0 +1,110 @@
+.button {
+  display: inline-flex; /* Используем flex для иконок */
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px; /* Скругленные углы */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  text-decoration: none; /* Убираем подчеркивание для link */
+  position: relative; /* Для позиционирования спиннера */
+  overflow: hidden; /* Чтобы спиннер не вылезал */
+  white-space: nowrap; /* Предотвращаем перенос текста */
+}
+
+/* Варианты кнопок */
+.primary {
+  background-color: var(--tg-theme-button-color, #007bff); /* Цвет из Telegram или дефолтный */
+  color: var(--tg-theme-button-text-color, white);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #0056b3; /* Затемняем при наведении */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.secondary {
+  background-color: var(--tg-theme-secondary-bg-color, #f8f9fa);
+  color: var(--tg-theme-text-color, #333);
+  border: 1px solid var(--tg-theme-hint-color, #ccc);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #e2e6ea;
+  border-color: #bbb;
+}
+
+.danger {
+  background-color: var(--tg-theme-destructive-text-color, #dc3545); /* Используем цвет для "разрушительных" действий */
+  color: white;
+}
+
+.danger:hover:not(:disabled) {
+  background-color: #c82333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  background-color: transparent;
+  color: var(--tg-theme-link-color, #007bff);
+  padding: 0; /* Убираем паддинги для ссылки */
+  text-decoration: underline;
+}
+
+.link:hover:not(:disabled) {
+  color: #0056b3;
+}
+
+
+/* Стили для неактивной кнопки */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Стили для состояния загрузки */
+.loading .content,
+.loading .iconLeft,
+.loading .iconRight {
+  opacity: 0; /* Скрываем содержимое при загрузке */
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  opacity: 1; /* Показываем спиннер */
+}
+
+/* Анимация спиннера */
+@keyframes spin {
+  to {
+      transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Стили для иконок */
+.iconLeft, .iconRight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconLeft {
+  margin-right: 8px; /* Отступ слева от текста */
+}
+
+.iconRight {
+  margin-left: 8px; /* Отступ справа от текста */
+}
+

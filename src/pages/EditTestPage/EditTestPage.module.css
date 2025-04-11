@@ -1,0 +1,79 @@
+.editTestPage {
+    padding: 20px;
+}
+
+.editTestPage h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.formSection {
+    margin-bottom: 20px;
+    padding: 1.5rem;
+}
+
+.formSection h3, .formSection h4, .formSection h5 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--tg-theme-text-color, #444);
+}
+
+.questionCard {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--tg-theme-secondary-bg-color, #f8f9fa);
+    border: 1px solid #eee;
+}
+
+.questionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.questionHeader h4 {
+    margin: 0;
+}
+
+.answerRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.answerInput {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.addButton {
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
+}
+
+.removeButtonSmall {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    line-height: 1;
+    min-width: auto;
+}
+
+.submitSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: var(--tg-theme-destructive-text-color, red);
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid var(--tg-theme-destructive-text-color, red);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+

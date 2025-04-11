@@ -1,0 +1,19 @@
+.card {
+    background-color: var(--tg-theme-bg-color, white);
+    border-radius: 12px; /* Более скругленные углы */
+    padding: 1.5rem; /* Увеличим паддинг */
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Мягкая тень */
+    border: 1px solid var(--tg-theme-secondary-bg-color, #e9ecef); /* Тонкая граница */
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* Увеличиваем тень при наведении */
+    transform: translateY(-2px); /* Небольшой подъем */
+}

@@ -1,0 +1,87 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Поверх остального контента */
+    backdrop-filter: blur(3px); /* Эффект размытия фона */
+}
+
+.modal {
+    background-color: var(--tg-theme-bg-color, white);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 90%;
+    width: 500px; /* Максимальная ширина модального окна */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* Ограничение высоты */
+    animation: slide-down 0.3s ease-out; /* Анимация появления */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--tg-theme-secondary-bg-color, #eee);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Заголовок не должен сжиматься */
+}
+
+.title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--tg-theme-text-color, #333);
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--tg-theme-hint-color, #aaa);
+    padding: 0 5px; /* Небольшой паддинг для удобства нажатия */
+}
+
+.closeButton:hover {
+    color: var(--tg-theme-text-color, #555);
+}
+
+.content {
+    overflow-y: auto; /* Добавляем скролл, если контент не помещается */
+    flex-grow: 1; /* Контент занимает доступное пространство */
+    color: var(--tg-theme-text-color, #333);
+}
+
+.footer {
+    border-top: 1px solid var(--tg-theme-secondary-bg-color, #eee);
+    padding-top: 15px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end; /* Кнопки справа */
+    gap: 10px; /* Отступ между элементами футера */
+    flex-shrink: 0; /* Футер не должен сжиматься */
+}
+
+/* Анимация появления модального окна */
+@keyframes slide-down {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

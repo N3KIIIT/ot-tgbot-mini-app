@@ -1,0 +1,63 @@
+.resultsPage {
+  padding: 20px;
+}
+
+.resultsPage h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--tg-theme-text-color, #333);
+}
+
+.resultsList {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Немного меньше минимальная ширина */
+}
+
+.resultCard {
+  border-left: 5px solid var(--tg-theme-button-color, #007bff); /* Цветная полоска слева */
+  padding: 1rem 1.5rem;
+}
+
+.resultCard h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--tg-theme-text-color, #333);
+}
+
+.score {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--tg-theme-text-color, #555);
+}
+
+.correctCount {
+  font-weight: bold;
+  color: #28a745; /* Зеленый для правильных ответов */
+  margin: 0 4px;
+}
+
+.totalCount {
+  font-weight: bold;
+  color: var(--tg-theme-hint-color, #6c757d); /* Серый для общего числа */
+   margin: 0 4px;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: var(--tg-theme-hint-color, #888);
+  margin-bottom: 0;
+}
+
+.error {
+  color: var(--tg-theme-destructive-text-color, red);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.noResults {
+  text-align: center;
+  color: var(--tg-theme-hint-color, #666);
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
