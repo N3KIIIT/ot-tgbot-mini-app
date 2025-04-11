@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/ot-tgbot-mini-app/static/css/main.e6c13ad2.css",
-    "main.js": "/ot-tgbot-mini-app/static/js/main.a78cf689.js",
-    "static/js/453.79b96dd2.chunk.js": "/ot-tgbot-mini-app/static/js/453.79b96dd2.chunk.js",
+    "main.css": "/ot-tgbot-mini-app/static/css/main.1fd1d162.css",
+    "main.js": "/ot-tgbot-mini-app/static/js/main.51e9d360.js",
     "index.html": "/ot-tgbot-mini-app/index.html",
-    "main.e6c13ad2.css.map": "/ot-tgbot-mini-app/static/css/main.e6c13ad2.css.map",
-    "main.a78cf689.js.map": "/ot-tgbot-mini-app/static/js/main.a78cf689.js.map",
-    "453.79b96dd2.chunk.js.map": "/ot-tgbot-mini-app/static/js/453.79b96dd2.chunk.js.map"
+    "main.1fd1d162.css.map": "/ot-tgbot-mini-app/static/css/main.1fd1d162.css.map",
+    "main.51e9d360.js.map": "/ot-tgbot-mini-app/static/js/main.51e9d360.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.a78cf689.js"
+    "static/css/main.1fd1d162.css",
+    "static/js/main.51e9d360.js"
   ]
 }
